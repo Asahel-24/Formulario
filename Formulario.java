@@ -27,7 +27,7 @@ public class Formulario extends JFrame implements ActionListener {
         add(boton3);
         boton3.addActionListener(this);
 
-
+//hola
 
     }
 
