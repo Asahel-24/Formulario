@@ -11,7 +11,14 @@ public class Formulario extends JFrame implements ActionListener {
     
     public Formulario(){
 
-        
+        setLayout(null);
+        etiqueta1 = new JLabel("Usuario");
+        etiqueta1.setBounds(10,10, 100,30);
+        add(etiqueta1);
+
+        textField1  = new JTextField();
+        textField1.setBounds(120,17,150,20);
+        add(textField1);
 
         setLayout(null);
         boton1 = new JButton("1");
