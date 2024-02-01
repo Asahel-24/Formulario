@@ -30,7 +30,8 @@ public class Formulario extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent e){
         if (e.getSource() == boton1){
-            System.exit(0);
+            String texto = textField1.getText();
+            setTitle(texto);
         }
     }
 
