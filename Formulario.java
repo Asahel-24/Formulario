@@ -1,4 +1,6 @@
 import javax.swing.*;
+import javax.swing.text.TextAction;
+import java.awt.*;
 import java.awt.event.*;
 
 public class Formulario extends JFrame {
@@ -9,6 +11,8 @@ public class Formulario extends JFrame {
     private  JLabel etiqueta1;*/
     
     public Formulario(){
+
+        setTitle("Formulario");
 
         setLayout(null);
         textField1 = new JTextField();
