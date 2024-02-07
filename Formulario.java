@@ -6,6 +6,7 @@ import java.awt.event.*;
 public class Formulario extends JFrame {
 
     private JTextField textField1;
+    private JScrollPane scrollPane1;
     private JTextArea textArea;
     /*private JButton boton1;
     private  JLabel etiqueta1;*/
@@ -16,16 +17,13 @@ public class Formulario extends JFrame {
 
         setLayout(null);
         textField1 = new JTextField();
-        textField1.setBounds(10,10, 100,30);
-        add(textField1);
-
-        textField1  = new JTextField();
-        textField1.setBounds(10,10,200,30);
+        textField1.setBounds(10,10, 200,30);
         add(textField1);
 
         textArea = new JTextArea();
-        textArea.setBounds(10,50,400,300);
-        add(textArea);
+        scrollPane1 =new JScrollPane(textArea);
+        scrollPane1.setBounds(10,50,400,300);
+        add(scrollPane1);
 
         /*setLayout(null);
         boton1 = new JButton("Aceptar");
