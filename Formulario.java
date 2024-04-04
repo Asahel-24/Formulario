@@ -1,67 +1,47 @@
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
+import javax.swing.event.*;
 
-public class Formulario extends JFrame implements ActionListener{
-    private JMenuBar menuBar;
-    private JMenu menu1,menu2,menu3;
-    private JMenuItem menuItem1,menuItem2,menuItem3,menuItem4;
+public class Formulario extends JFrame implements ChangeListener{
+
+    private JCheckBox check1,check2,check3;
 
     public Formulario(){
         setLayout(null);
-        menuBar = new JMenuBar();
-        setJMenuBar(menuBar);
+        check1 = new JCheckBox("Ingles");
+        check1.setBounds(10,10,150,30);
+        check1.addChangeListener(this);
+        add(check1);
 
-        menu1 = new JMenu("Opciones");
-        menuBar.add(menu1);
+        check2 = new JCheckBox("Frances");
+        check2.setBounds(10,50,150,30);
+        check2.addChangeListener(this);
+        add(check2);
 
-        menu2 = new JMenu("Tamaño de Ventana");
-        menu1.add(menu2);
-
-        menu3 = new JMenu("Color de Fondo");
-        menu1.add(menu3);
-
-        //Tamaño de ventana
-        menuItem1 = new JMenuItem("300 x 200");
-        menu2.add(menuItem1);
-        menuItem1.addActionListener(this);
-
-        menuItem2 = new JMenuItem("600 x 480");
-        menu2.add(menuItem2);
-        menuItem2.addActionListener(this);
-
-        //Color de fondo
-        menuItem3 = new JMenuItem("Rojo");
-        menu3.add(menuItem3);
-        menuItem3.addActionListener(this);
-
-        menuItem4 = new JMenuItem("Verde");
-        menu3.add(menuItem4);
-        menuItem4.addActionListener(this);
+        check3 = new JCheckBox("Aleman");
+        check3.setBounds(10,90,150,30);
+        check3.addChangeListener(this);
+        add(check3);
     }
+    public void stateChanged(ChangeEvent e)  {
+        String cad = "";
 
-    public void actionPerformed(ActionEvent e){
-        if (e.getSource() == menuItem1){
-            setSize(300,200);
+        if (check1.isSelected() == true){
+            cad = cad + "Ingles ";
         }
-
-        if(e.getSource() == menuItem2){
-            setSize(600,480);
+        if(check2.isSelected() == true){
+            cad = cad + "Frances ";
         }
-
-        if(e.getSource() == menuItem3){
-            getContentPane().setBackground(new Color(255,0,0));
+        if (check3.isSelected() == true){
+            cad = cad + "Aleman ";
         }
-        if (e.getSource() == menuItem4){
-            getContentPane().setBackground(new Color(0,255,0));
-        }
+        setTitle(cad);
     }
 
     public static void main(String args[]){
         Formulario formulario = new Formulario();
-        formulario.setBounds(0,0,300,200);
+        formulario.setBounds(0,0,350,200);
         formulario.setVisible(true);
+        formulario.setResizable(false);
         formulario.setLocationRelativeTo(null);
     }
-
 }
