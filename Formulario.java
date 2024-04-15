@@ -1,5 +1,6 @@
 import javax.swing.*;
 import javax.swing.event.*;
+import java.awt.*;
 import java.awt.event.*;
 public class Formulario extends JFrame implements ActionListener, ChangeListener{
     private JLabel labael1;
@@ -19,6 +20,7 @@ public class Formulario extends JFrame implements ActionListener, ChangeListener
 
         boton1 = new JButton("Continuar");
         boton1.setBounds(10,100,100,30);
+        boton1.setBackground(new Color(255, 0, 23));
         add(boton1);
         boton1.addActionListener(this);
         boton1.setEnabled(false);
@@ -26,12 +28,14 @@ public class Formulario extends JFrame implements ActionListener, ChangeListener
 //Para el chekBox
     public void stateChanged(ChangeEvent e){
         if (check1.isSelected() == true){
+            boton1.setBackground(new Color(12, 211, 22));
             boton1.setEnabled(true);
         } else {
+            boton1.setBackground(new Color(255, 0, 23));
             boton1.setEnabled(false);
         }
     }
-
+//Para el boton aceptar
     public void actionPerformed(ActionEvent e){
         if (e.getSource() == boton1){
             System.exit(0);
