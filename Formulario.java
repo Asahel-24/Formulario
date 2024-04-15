@@ -1,47 +1,49 @@
 import javax.swing.*;
 import javax.swing.event.*;
-
-public class Formulario extends JFrame implements ChangeListener{
-
-    private JCheckBox check1,check2,check3;
+import java.awt.event.*;
+public class Formulario extends JFrame implements ActionListener, ChangeListener{
+    private JLabel labael1;
+    private JCheckBox check1;
+    private JButton boton1;
 
     public Formulario(){
         setLayout(null);
-        check1 = new JCheckBox("Ingles");
-        check1.setBounds(10,10,150,30);
+        labael1 = new JLabel("Aceptar terminos y condiciones");
+        labael1.setBounds(10,10,400,30);
+        add(labael1);
+
+        check1 = new JCheckBox("Acepto");
+        check1.setBounds(10,50,100,30);
         check1.addChangeListener(this);
         add(check1);
 
-        check2 = new JCheckBox("Frances");
-        check2.setBounds(10,50,150,30);
-        check2.addChangeListener(this);
-        add(check2);
-
-        check3 = new JCheckBox("Aleman");
-        check3.setBounds(10,90,150,30);
-        check3.addChangeListener(this);
-        add(check3);
+        boton1 = new JButton("Continuar");
+        boton1.setBounds(10,100,100,30);
+        add(boton1);
+        boton1.addActionListener(this);
+        boton1.setEnabled(false);
     }
-    public void stateChanged(ChangeEvent e)  {
-        String cad = "";
-
+//Para el chekBox
+    public void stateChanged(ChangeEvent e){
         if (check1.isSelected() == true){
-            cad = cad + "Ingles ";
+            boton1.setEnabled(true);
+        } else {
+            boton1.setEnabled(false);
         }
-        if(check2.isSelected() == true){
-            cad = cad + "Frances ";
+    }
+
+    public void actionPerformed(ActionEvent e){
+        if (e.getSource() == boton1){
+            System.exit(0);
         }
-        if (check3.isSelected() == true){
-            cad = cad + "Aleman ";
-        }
-        setTitle(cad);
     }
 
     public static void main(String args[]){
         Formulario formulario = new Formulario();
         formulario.setBounds(0,0,350,200);
-        formulario.setVisible(true);
         formulario.setResizable(false);
+        formulario.setVisible(true);
         formulario.setLocationRelativeTo(null);
     }
+
 }
